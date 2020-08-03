@@ -1,19 +1,13 @@
 package com.birenderjit.connected_cities.controllers;
 
-import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.birenderjit.connected_cities.Model.Graph;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.servlet.ModelAndView;
-
 
 @Controller
 public class MainController {
@@ -33,15 +27,17 @@ public class MainController {
         String isConnected = "";
         logger.info("--- Main Controller ---");
         logger.info("Graph size -- " + cityGraph.getCityToNodeMap().size());
-        logger.info("origin -- " + origin);
-        logger.info("destination -- " + destination);
+        /*logger.info("origin -- " + origin);
+        logger.info("destination -- " + destination);*/
         if (origin.isBlank() || origin.isEmpty()  || destination.isBlank() || destination.isEmpty()) {
             isConnected = "no";
         } else {
             boolean result = cityGraph.isConnected(cityGraph.getCityToNodeMap(), origin, destination);
             if (result) {
+                logger.info(origin + " and " + destination + "are connected.");
                 isConnected = "yes";
             } else {
+                logger.info(origin + " and " + destination + "are Not connected.");
                 isConnected = "no";
             }
         }

@@ -70,7 +70,7 @@ public class DataLoader implements CommandLineRunner {
 
         logger.info("Data Loaded....");
         logger.info("Graph size -- " + cityToNodeMap.size());
-        logger.info("Graph  -- " + cityToNodeMap.toString());
+        //logger.info("Graph  -- " + cityToNodeMap.toString());
 
 
     }
