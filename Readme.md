@@ -10,10 +10,10 @@ The file contains a list of city pairs (one pair per line, comma separated), whi
 
 **city.txt sample content is:**
 
-  Boston, New York
-  Philadelphia, Newark
-  Newark, Boston
-  Trenton, Albany  
+  Boston, New York\
+  Philadelphia, Newark\
+  Newark, Boston\
+  Trenton, Albany
 
 It will be deployed as a Spring Boot App and expose one endpoint:
 http://localhost:8080/connected?origin=city1&destination=city2
