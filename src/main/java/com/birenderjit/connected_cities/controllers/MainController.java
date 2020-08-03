@@ -14,7 +14,7 @@ public class MainController {
 
     Logger logger = LoggerFactory.getLogger(MainController.class);
 
-    private Graph cityGraph;
+    private final Graph cityGraph;
 
     public MainController(Graph cityGraph) {
         this.cityGraph = cityGraph;
@@ -24,7 +24,7 @@ public class MainController {
     public String checkIfConnected(Model model, @RequestParam(name = "origin") String origin,
                                    @RequestParam(name = "destination") String destination) {
 
-        String isConnected = "";
+        String isConnected;
         logger.info("--- Main Controller ---");
         logger.info("Graph size -- " + cityGraph.getCityToNodeMap().size());
         /*logger.info("origin -- " + origin);
@@ -34,10 +34,10 @@ public class MainController {
         } else {
             boolean result = cityGraph.isConnected(cityGraph.getCityToNodeMap(), origin, destination);
             if (result) {
-                logger.info(origin + " and " + destination + "are connected.");
+                logger.info(origin + " and " + destination + " are connected.");
                 isConnected = "yes";
             } else {
-                logger.info(origin + " and " + destination + "are Not connected.");
+                logger.info(origin + " and " + destination + " are Not connected.");
                 isConnected = "no";
             }
         }
